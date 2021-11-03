@@ -26,7 +26,7 @@ func RequestLoggingMiddleware(next http.Handler) http.Handler {
 		if requestId == "" {
 			requestId = r.Header.Get("Atb-Request-Id")
 		}
-		if correlationId != "" {
+		if requestId != "" {
 			logger = logger.With().Str("requestId", requestId).Logger()
 		}
 
