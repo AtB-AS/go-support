@@ -51,7 +51,7 @@ func RequestLoggingInterceptor() grpc.UnaryClientInterceptor {
 			log.Ctx(ctx).Info().Interface("grpc", reqData).Msgf("Completed call to %s", method)
 		} else {
 			reqData.Err = err
-			log.Ctx(ctx).Warn().Interface("grpc", reqData).Msgf("Failed call to %s", method)
+			log.Ctx(ctx).Info().Interface("grpc", reqData).Msgf("Completed call to %s with error", method)
 		}
 
 		return err
